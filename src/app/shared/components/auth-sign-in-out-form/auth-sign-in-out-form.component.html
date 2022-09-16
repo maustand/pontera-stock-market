@@ -1,1 +1,40 @@
-<p>auth-sign-in-out-form works!</p>
+<form id="auth-sign-in-out-form" [formGroup]="authUserForm">
+  <div class="form-field">
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        [formControl]="authUserForm.controls.email"
+        required
+      />
+      <mat-error *ngIf="authUserForm.get('email')?.dirty && authUserForm.get('email')?.invalid"
+        >* Email is invalid</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <div class="form-field">
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        [type]="isHide ? 'password' : 'text'"
+        [formControl]="authUserForm.controls.password"
+        autocomplete="new-password"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="isHide = !isHide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="isHide"
+      >
+        <mat-icon>{{ isHide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+
+      <mat-error *ngIf="authUserForm.get('email')?.dirty && authUserForm.get('email')?.invalid"
+      >* Password minimum length 8</mat-error>
+    </mat-form-field>
+  </div>
+</form>

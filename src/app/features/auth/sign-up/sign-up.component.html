@@ -1,1 +1,24 @@
-<p>sign-up works!</p>
+<div class="auth_sign-in-out-card">
+  <h3>Sign Up</h3>
+
+  <pontera-auth-sign-in-out-form
+    (formStatusChanges)="onSignInAndOutFormStatusChanged($event)"
+  >
+  </pontera-auth-sign-in-out-form>
+
+  <button
+    form="auth-sign-in-out-form"
+    type="submit"
+    class="btn-submit"
+    mat-raised-button
+    color="primary"
+    [disabled]="!formStatus?.isValid"
+    (click)="singUp()"
+  >
+    Sign In
+  </button>
+
+  <a class="auth-link" [routerLink]="['/auth', 'signin']"
+    >Already you have an account ?, Sign in here !</a
+  >
+</div>

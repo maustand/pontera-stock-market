@@ -1,0 +1,29 @@
+$btn-form-fields-width: 20rem;
+
+.auth_sign-in-out-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  margin: 5% auto;
+  width: 600px;
+  height: 400px;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+
+  mat-form-field {
+    width: $btn-form-fields-width;
+    margin-bottom: 1rem;
+  }
+
+  .btn-submit {
+    width: $btn-form-fields-width;
+  }
+
+  .auth-link {
+    margin-top: 0.8rem;
+  }
+}

@@ -6,6 +6,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Fund } from '@core/models/funds';
@@ -19,6 +20,7 @@ import { FundsService } from '@core/services/api/funds/funds.service';
 })
 export class ListFundsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
+  // @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   dataSource = new MatTableDataSource<Fund>();
   displayedColumns: string[] = ['symbol', 'price', 'performance', 'date_time'];
@@ -29,13 +31,14 @@ export class ListFundsComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    this.fundServ.all().subscribe((funds) => {
-      this.dataSource.data = funds;
+    this.fundServ.all().subscribe((res) => {
+      this.dataSource.data = res.funds;
       this.cdRef.markForCheck();
     });
   }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
   }
 }

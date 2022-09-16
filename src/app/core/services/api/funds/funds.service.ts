@@ -16,7 +16,7 @@ export class FundsService {
   }
 
   all() {
-    return this.http.get<Fund[]>(`${this.entryPoint}/funds`);
+    return this.http.get<{funds:Fund[]}>(`${this.entryPoint}/funds`);
   }
 
   show(symbol: string) {

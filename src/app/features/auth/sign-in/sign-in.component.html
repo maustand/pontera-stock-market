@@ -1,1 +1,19 @@
-<p>sign-in works!</p>
+<div class="auth_sign-in-out-card">
+  <h3>Sign In</h3>
+
+  <pontera-auth-sign-in-out-form> </pontera-auth-sign-in-out-form>
+
+  <button
+    form="auth-sign-in-out-form"
+    type="submit"
+    class="btn-submit"
+    mat-raised-button
+    color="primary"
+  >
+    Sign In
+  </button>
+
+  <a class="auth-link" [routerLink]="['/auth', 'signup']"
+    >Dont you have an account ?, Sign Up here !</a
+  >
+</div>
